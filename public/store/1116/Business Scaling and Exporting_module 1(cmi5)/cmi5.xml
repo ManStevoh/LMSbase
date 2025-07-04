@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<courseStructure xmlns="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd">
+  <course id="https://example.com/course/6KoztvXBUSS">
+    <title>
+      <langstring lang="und">Business Scaling and Exporting_module 1(cmi5)</langstring>
+    </title>
+    <description>
+      <langstring lang="und"></langstring>
+    </description>
+  </course>
+  <au id="https://example.com/activity/6KoztvXBUSS" launchMethod="OwnWindow" moveOn="CompletedOrPassed">
+    <title>
+      <langstring lang="und">Business Scaling and Exporting_module 1(cmi5)</langstring>
+    </title>
+    <description>
+      <langstring lang="und"></langstring>
+    </description>
+    <url>index_lms.html</url>
+  </au>
+</courseStructure>

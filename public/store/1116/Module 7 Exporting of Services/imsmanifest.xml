@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest identifier="_6KoztvXBUSS" version="1.3" xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3" xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3" xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3" xmlns:imsss="http://www.imsglobal.org/xsd/imsss" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd
+                        http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd
+                        http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd
+                        http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd
+                        http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>CAM 1.3</schemaversion>
+    <adlcp:location>metadata.xml</adlcp:location>
+  </metadata>
+  <organizations default="Module_7:_Exporting_of_Services_ORG">
+    <organization identifier="Module_7:_Exporting_of_Services_ORG" adlseq:objectivesGlobalToSystem="false">
+      <title>Module 7: Exporting of Services</title>
+      <item identifier="Business_Scaling_and_Exporting_DBN_V4_SCO" identifierref="__6KoztvXBUSS_RES" isvisible="true">
+        <title>Module 7: Exporting of Services</title>
+      </item>
+      <metadata>
+        <adlcp:location>metadata.xml</adlcp:location>
+      </metadata>
+      <imsss:sequencing>
+        <imsss:controlMode choice="true" flow="true" />
+        <imsss:deliveryControls tracked="true" completionSetByContent="false" objectiveSetByContent="false" />
+      </imsss:sequencing>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="__6KoztvXBUSS_RES" type="webcontent" adlcp:scormType="sco" href="index_lms.html">
+      <file href="story_content/thumbnail.jpg" />
+      <file href="mobile/6awOtzUnTv5_P_0_106_2048_1152.jpg" />
+      <file href="story_content/5ZxBnCwRwKK_44100_48_0.mp3" />
+      <file href="story_content/6eP2nX6JHp4_44100_48_0.mp3" />
+      <file href="mobile/6iIhCVPQy6R.png" />
+      <file href="mobile/6gZqLZLKmrV.jpg" />
+      <file href="mobile/6TCjBK6iOHz.png" />
+      <file href="story_content/5ZyBuLKEyKJ_44100_48_0.mp3" />
+      <file href="story_content/5i0XjBr875M_44100_48_0.mp3" />
+      <file href="story_content/6pllnbuvRp4.html" />
+      <file href="mobile/6pllnbuvRp46cAr6Wu4Df3{Width=1500, Height=843.75}Light.png" />
+      <file href="mobile/65zJ0Ue2ZLS.png" />
+      <file href="mobile/6Svh22EQrNp_M_2778_2778.png" />
+      <file href="story_content/6Z1nWqZuoXn_44100_48_0.mp3" />
+      <file href="story_content/6oh2SdtASIy_44100_48_0.mp3" />
+      <file href="story_content/6SyTiNNtUo2_44100_48_0.mp3" />
+      <file href="mobile/5WzZknw8Cc5.jpg" />
+      <file href="story_content/6mJj8mcfudg_44100_48_0.mp3" />
+      <file href="story_content/5ZMVAiJhB7Z_44100_48_0.mp3" />
+      <file href="story_content/6KjmMLUT6FN_44100_48_0.mp3" />
+      <file href="mobile/5yTLySqjR2R.jpg" />
+      <file href="mobile/5aFkywp8Q50_M_2282_2282.png" />
+      <file href="story_content/6VNsg3aRpwy_44100_48_0.mp3" />
+      <file href="mobile/5Z2RPRT8VPf_M_2282_2282.png" />
+      <file href="story_content/6bD7CDqQfyG_44100_48_0.mp3" />
+      <file href="story_content/6ezJGisAILt_44100_48_0.mp3" />
+      <file href="story_content/5VPzBIvlNh8.html" />
+      <file href="mobile/5VPzBIvlNh86nFTcJSiKrV{Width=1500, Height=843.75}Light.png" />
+      <file href="story_content/661oZ54vnnX.html" />
+      <file href="mobile/661oZ54vnnX6SJE7D4skMd{Width=1500, Height=843.75}Light.png" />
+      <file href="story_content/6WXS5DamW9u.html" />
+      <file href="mobile/6WXS5DamW9u5h6zG9EaI87{Width=1500, Height=843.75}Light.png" />
+      <file href="mobile/6N7KHUpYS1G.png" />
+      <file href="story_content/6JPkR2iYiSB_44100_48_0.mp3" />
+      <file href="meta.xml" />
+      <file href="story_content/6GnRqUuDlmB.png" />
+      <file href="story_content/6ZEU5g0s3NO.png" />
+      <file href="story_content/6YbyDV9du2j.png" />
+      <file href="story_content/67igiZPKms2.png" />
+      <file href="story_content/61bE1qbq073.png" />
+      <file href="story_content/6mi4dnWPo5G.png" />
+      <file href="story_content/user.js" />
+      <file href="story_content/external_files/commercial_invoice_.pdf" />
+      <file href="story_content/external_files/Proforma Invoice.pdf" />
+      <file href="story_content/external_files/packing_list_1.pdf" />
+      <file href="story_content/external_files/bill_of_lading_template.pdf" />
+      <file href="story_content/external_files/certificate_of_origin_1.pdf" />
+      <file href="story_content/external_files/Nigeria Export Proceeds Form.pdf" />
+      <file href="html5/data/css/output.min.css" />
+      <file href="html5/data/js/5l7mFTa15eO.js" />
+      <file href="html5/data/js/5nDvS8sOrH3.js" />
+      <file href="html5/data/js/5psRJNslNa3.js" />
+      <file href="html5/data/js/69y6ofdEsFc.js" />
+      <file href="html5/data/js/6cSxLbIco0Q.js" />
+      <file href="html5/data/js/6IH5E31o41k.js" />
+      <file href="html5/data/js/6N0WNla8Dtd.js" />
+      <file href="html5/data/js/6NqMWsdrYl1.js" />
+      <file href="html5/data/js/6OUmvQ0gpIp.js" />
+      <file href="html5/data/js/6TH2TIVPUQ6.js" />
+      <file href="html5/data/js/data.js" />
+      <file href="html5/data/js/frame.js" />
+      <file href="html5/data/js/paths.js" />
+      <file href="html5/lib/hls/hls.min.js" />
+      <file href="html5/lib/scripts/bootstrapper.min.js" />
+      <file href="html5/lib/scripts/frame.desktop.min.js" />
+      <file href="html5/lib/scripts/frame.mobile.min.js" />
+      <file href="html5/lib/scripts/slides.min.js" />
+      <file href="html5/lib/stylesheets/desktop.min.css" />
+      <file href="html5/lib/stylesheets/mobile.min.css" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-bold.woff" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-light.woff" />
+      <file href="html5/lib/stylesheets/mobile-fonts/open-sans-regular.woff" />
+      <file href="analytics-frame.html" />
+      <file href="story.html" />
+      <file href="index_lms.html" />
+      <file href="lms/AICCComm.html" />
+      <file href="lms/blank.html" />
+      <file href="lms/browsersniff.js" />
+      <file href="lms/goodbye.html" />
+      <file href="lms/scormdriver.js" />
+    </resource>
+  </resources>
+</manifest>

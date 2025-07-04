@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+sitemap:https://nji.sapphitalgroup.net/sitemap.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-1.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-2.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-3.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-4.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-5.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-6.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-7.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-8.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-9.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-10.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-11.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-12.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-13.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-14.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-15.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-16.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-17.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-18.xml
+sitemap:https://nji.sapphitalgroup.net/sitemap-19.xml

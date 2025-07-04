@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tincan xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://projecttincan.com/tincan.xsd">
+	<activities>
+		<activity id="urn:articulate:storyline:5w8aOMg5Mce" type="http://adlnet.gov/expapi/activities/course">
+			<name lang="und">Module 1- The Financing Considerations 1</name>
+			<description lang="und" />
+			<launch lang="und">index_lms.html</launch>
+		</activity>
+		<activity id="urn:articulate:storyline:5w8aOMg5Mce/5cq0fHuwGTv" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">Course Title Page</name>
+			<description lang="und">Course Title Page</description>
+		</activity>
+		<activity id="urn:articulate:storyline:5w8aOMg5Mce/6hm7ylue3Ds" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">Ada's Story</name>
+			<description lang="und">Ada's Story</description>
+		</activity>
+		<activity id="urn:articulate:storyline:5w8aOMg5Mce/6Hv4nfu1Afl" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">Introduction</name>
+			<description lang="und">Introduction</description>
+		</activity>
+		<activity id="urn:articulate:storyline:5w8aOMg5Mce/6qLyQD0zZIK" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">Module 1</name>
+			<description lang="und">Module 1</description>
+		</activity>
+		<activity id="urn:articulate:storyline:5w8aOMg5Mce/5i0naLN7xNa" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">Learning Objective</name>
+			<description lang="und">Learning Objective</description>
+		</activity>
+		<activity id="urn:articulate:storyline:5w8aOMg5Mce/6mUCm7Jybg6" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">Introduction to Module 1</name>
+			<description lang="und">Introduction to Module 1</description>
+		</activity>
+		<activity id="urn:articulate:storyline:5w8aOMg5Mce/6CVmHjE9c3Q" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">The Financing Considerations for Entrepreneurs</name>
+			<description lang="und">The Financing Considerations for Entrepreneurs</description>
+		</activity>
+		<activity id="urn:articulate:storyline:5w8aOMg5Mce/60IZdl9eKvo" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">The end</name>
+			<description lang="und">The end</description>
+		</activity>
+	</activities>
+</tincan>

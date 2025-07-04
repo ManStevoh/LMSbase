@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tincan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://projecttincan.com/tincan.xsd">
+	<activities>
+		<activity id="urn:articulate:storyline:6KoztvXBUSS" type="http://adlnet.gov/expapi/activities/course">
+			<name lang="und">Business Scaling and Exporting_module 1(xapi)</name>
+			<description lang="und" />
+			<launch lang="und">index_lms.html</launch>
+		</activity>
+		<activity id="urn:articulate:storyline:6KoztvXBUSS/6S44J2NHBR1" type="http://adlnet.gov/expapi/activities/objective">
+			<name lang="und">Business Scaling and Exporting_module 1(xapi)</name>
+			<description lang="und">Business Scaling and Exporting_module 1(xapi)</description>
+		</activity>
+		<activity id="urn:articulate:storyline:6KoztvXBUSS/61B2wHDwy3q" type="http://adlnet.gov/expapi/activities/objective">
+			<name lang="und">Business Scaling and Exporting_module 1(xapi)</name>
+			<description lang="und">Business Scaling and Exporting_module 1(xapi)</description>
+		</activity>
+		<activity id="urn:articulate:storyline:6KoztvXBUSS/5et1QIPnVUe" type="http://adlnet.gov/expapi/activities/objective">
+			<name lang="und">Business Scaling and Exporting_module 1(xapi)</name>
+			<description lang="und">Business Scaling and Exporting_module 1(xapi)</description>
+		</activity>
+		<activity id="urn:articulate:storyline:6KoztvXBUSS/6REOTeVuvBX" type="http://adlnet.gov/expapi/activities/objective">
+			<name lang="und">Business Scaling and Exporting_module 1(xapi)</name>
+			<description lang="und">Business Scaling and Exporting_module 1(xapi)</description>
+		</activity>
+		<activity id="urn:articulate:storyline:6KoztvXBUSS/67rmdna6R8J" type="http://adlnet.gov/expapi/activities/objective">
+			<name lang="und">Business Scaling and Exporting_module 1(xapi)</name>
+			<description lang="und">Business Scaling and Exporting_module 1(xapi)</description>
+		</activity>
+		<activity id="urn:articulate:storyline:6KoztvXBUSS/6culenD2HrD" type="http://adlnet.gov/expapi/activities/objective">
+			<name lang="und">Business Scaling and Exporting_module 1(xapi)</name>
+			<description lang="und">Business Scaling and Exporting_module 1(xapi)</description>
+		</activity>
+		<activity id="urn:articulate:storyline:6KoztvXBUSS/6dlqF3RakPq" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">Meet Amaka</name>
+			<description lang="und">Meet Amaka</description>
+		</activity>
+		<activity id="urn:articulate:storyline:6KoztvXBUSS/6r7w5l4FBty" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">Introductory Live Video</name>
+			<description lang="und">Introductory Live Video</description>
+		</activity>
+		<activity id="urn:articulate:storyline:6KoztvXBUSS/6WsJmhyg9Fk" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">Mode of supply</name>
+			<description lang="und">Mode of supply</description>
+		</activity>
+		<activity id="urn:articulate:storyline:6KoztvXBUSS/5YVP1HcYGBR" type="http://adlnet.gov/expapi/activities/module">
+			<name lang="und">Introductory Animation</name>
+			<description lang="und">Introductory Animation</description>
+		</activity>
+	</activities>
+</tincan>

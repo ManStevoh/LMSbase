@@ -1,0 +1,159 @@
+[02-Jun-2025 20:18:52 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:18:52 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:18:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:57 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:57 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:57 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:57 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:58 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:58 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:58 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:58 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:58 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:58 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:59 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:59 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:59 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:59 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:59 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:59 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:59 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:59 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:19:59 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:20:00 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:20:00 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:20:00 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:21:01 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:21:01 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:21:01 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:24:04 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:24:04 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:24:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:35:51 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:35:51 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:35:51 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/public/index.php on line 34
+[02-Jun-2025 20:37:46 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:46 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:46 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php:39
+Stack trace:
+#0 /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php(43): {closure}('6e3fae29631ef28...', '/home/nigeriany...')
+#1 /home/nigerianyouthaca/niya-lms/vendor/autoload.php(25): ComposerAutoloaderInitc0136790f17b8df43988d13b63f7881b::getLoader()
+#2 /home/nigerianyouthaca/niya-lms/public/index.php(34): require('/home/nigeriany...')
+#3 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:46 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:46 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:46 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php:39
+Stack trace:
+#0 /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php(43): {closure}('6e3fae29631ef28...', '/home/nigeriany...')
+#1 /home/nigerianyouthaca/niya-lms/vendor/autoload.php(25): ComposerAutoloaderInitc0136790f17b8df43988d13b63f7881b::getLoader()
+#2 /home/nigerianyouthaca/niya-lms/public/index.php(34): require('/home/nigeriany...')
+#3 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php:39
+Stack trace:
+#0 /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php(43): {closure}('6e3fae29631ef28...', '/home/nigeriany...')
+#1 /home/nigerianyouthaca/niya-lms/vendor/autoload.php(25): ComposerAutoloaderInitc0136790f17b8df43988d13b63f7881b::getLoader()
+#2 /home/nigerianyouthaca/niya-lms/public/index.php(34): require('/home/nigeriany...')
+#3 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php:39
+Stack trace:
+#0 /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php(43): {closure}('6e3fae29631ef28...', '/home/nigeriany...')
+#1 /home/nigerianyouthaca/niya-lms/vendor/autoload.php(25): ComposerAutoloaderInitc0136790f17b8df43988d13b63f7881b::getLoader()
+#2 /home/nigerianyouthaca/niya-lms/public/index.php(34): require('/home/nigeriany...')
+#3 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php:39
+Stack trace:
+#0 /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php(43): {closure}('6e3fae29631ef28...', '/home/nigeriany...')
+#1 /home/nigerianyouthaca/niya-lms/vendor/autoload.php(25): ComposerAutoloaderInitc0136790f17b8df43988d13b63f7881b::getLoader()
+#2 /home/nigerianyouthaca/niya-lms/public/index.php(34): require('/home/nigeriany...')
+#3 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php:39
+Stack trace:
+#0 /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php(43): {closure}('6e3fae29631ef28...', '/home/nigeriany...')
+#1 /home/nigerianyouthaca/niya-lms/vendor/autoload.php(25): ComposerAutoloaderInitc0136790f17b8df43988d13b63f7881b::getLoader()
+#2 /home/nigerianyouthaca/niya-lms/public/index.php(34): require('/home/nigeriany...')
+#3 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:48 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:48 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php:39
+Stack trace:
+#0 /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php(43): {closure}('6e3fae29631ef28...', '/home/nigeriany...')
+#1 /home/nigerianyouthaca/niya-lms/vendor/autoload.php(25): ComposerAutoloaderInitc0136790f17b8df43988d13b63f7881b::getLoader()
+#2 /home/nigerianyouthaca/niya-lms/public/index.php(34): require('/home/nigeriany...')
+#3 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:48 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:48 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php:39
+Stack trace:
+#0 /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php(43): {closure}('6e3fae29631ef28...', '/home/nigeriany...')
+#1 /home/nigerianyouthaca/niya-lms/vendor/autoload.php(25): ComposerAutoloaderInitc0136790f17b8df43988d13b63f7881b::getLoader()
+#2 /home/nigerianyouthaca/niya-lms/public/index.php(34): require('/home/nigeriany...')
+#3 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:48 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:48 UTC] PHP Warning:  require(/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: Permission denied in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39
+[02-Jun-2025 20:37:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nigerianyouthaca/niya-lms/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php:39
+Stack trace:
+#0 /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php(43): {closure}('6e3fae29631ef28...', '/home/nigeriany...')
+#1 /home/nigerianyouthaca/niya-lms/vendor/autoload.php(25): ComposerAutoloaderInitc0136790f17b8df43988d13b63f7881b::getLoader()
+#2 /home/nigerianyouthaca/niya-lms/public/index.php(34): require('/home/nigeriany...')
+#3 {main}
+  thrown in /home/nigerianyouthaca/niya-lms/vendor/composer/autoload_real.php on line 39

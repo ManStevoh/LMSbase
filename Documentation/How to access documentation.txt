@@ -1,0 +1,5 @@
+To access the documentation, please follow these steps:
+
+1. Start by unzipping the "Documentation.zip" file.
+2. Once the file is unzipped, locate the "index.html" file.
+3. Open the "index.html" file using a web browser of your choice.

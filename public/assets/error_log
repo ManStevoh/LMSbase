@@ -1,0 +1,45 @@
+[06-Dec-2024 02:55:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function eval() in /home/africasmedigital/public_html/public/assets/cache.php:84
+Stack trace:
+#0 /home/africasmedigital/public_html/public/assets/cache.php(90): obfuscatedEval('<?php\r\nerror_re...')
+#1 {main}
+  thrown in /home/africasmedigital/public_html/public/assets/cache.php on line 84
+[06-Dec-2024 02:55:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function eval() in /home/africasmedigital/public_html/public/assets/cache.php:84
+Stack trace:
+#0 /home/africasmedigital/public_html/public/assets/cache.php(90): obfuscatedEval('<?php\r\nerror_re...')
+#1 {main}
+  thrown in /home/africasmedigital/public_html/public/assets/cache.php on line 84
+[06-Dec-2024 02:55:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function eval() in /home/africasmedigital/public_html/public/assets/cache.php:84
+Stack trace:
+#0 /home/africasmedigital/public_html/public/assets/cache.php(90): obfuscatedEval('<?php\r\nerror_re...')
+#1 {main}
+  thrown in /home/africasmedigital/public_html/public/assets/cache.php on line 84
+[06-Dec-2024 02:55:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function eval() in /home/africasmedigital/public_html/public/assets/cache.php:84
+Stack trace:
+#0 /home/africasmedigital/public_html/public/assets/cache.php(90): obfuscatedEval('<?php\r\nerror_re...')
+#1 {main}
+  thrown in /home/africasmedigital/public_html/public/assets/cache.php on line 84
+[06-Dec-2024 02:55:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function eval() in /home/africasmedigital/public_html/public/assets/cache.php:84
+Stack trace:
+#0 /home/africasmedigital/public_html/public/assets/cache.php(90): obfuscatedEval('<?php\r\nerror_re...')
+#1 {main}
+  thrown in /home/africasmedigital/public_html/public/assets/cache.php on line 84
+[06-Dec-2024 11:43:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function eval() in /home/africasmedigital/public_html/public/assets/cache.php:84
+Stack trace:
+#0 /home/africasmedigital/public_html/public/assets/cache.php(90): obfuscatedEval('<?php\r\nerror_re...')
+#1 {main}
+  thrown in /home/africasmedigital/public_html/public/assets/cache.php on line 84
+[06-Dec-2024 11:43:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function eval() in /home/africasmedigital/public_html/public/assets/cache.php:84
+Stack trace:
+#0 /home/africasmedigital/public_html/public/assets/cache.php(90): obfuscatedEval('<?php\r\nerror_re...')
+#1 {main}
+  thrown in /home/africasmedigital/public_html/public/assets/cache.php on line 84
+[06-Dec-2024 11:43:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function eval() in /home/africasmedigital/public_html/public/assets/cache.php:84
+Stack trace:
+#0 /home/africasmedigital/public_html/public/assets/cache.php(90): obfuscatedEval('<?php\r\nerror_re...')
+#1 {main}
+  thrown in /home/africasmedigital/public_html/public/assets/cache.php on line 84
+[06-Dec-2024 11:49:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function eval() in /home/africasmedigital/public_html/public/assets/cache.php:84
+Stack trace:
+#0 /home/africasmedigital/public_html/public/assets/cache.php(90): obfuscatedEval('<?php\r\nerror_re...')
+#1 {main}
+  thrown in /home/africasmedigital/public_html/public/assets/cache.php on line 84
