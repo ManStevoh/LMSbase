@@ -78,6 +78,15 @@ class User extends Authenticatable
 
         return $admin;
     }
+public function referredBy()
+{
+    return $this->hasOne(\App\Models\Affiliate::class, 'referred_user_id');
+}
+public function affiliateCodeRelation()
+{
+    return $this->hasOne(\App\Models\AffiliateCode::class, 'user_id', 'id');
+}
+
 
     static function getMainAdminId()
     {
@@ -89,6 +98,8 @@ class User extends Authenticatable
 
         return null;
     }
+
+
 
     public function isAdmin()
     {

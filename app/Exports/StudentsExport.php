@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Exports;
 
 use App\Http\Controllers\Web\traits\UserFormFieldsTrait;
-use App\Models\FormFieldOption;
-use App\Models\UserFormField;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -25,22 +22,20 @@ class StudentsExport implements FromCollection, WithHeadings, WithMapping
         $this->form = $this->getFormFieldsByType("user");
     }
 
-    /**
-     * @return Collection
-     */
     public function collection()
     {
         return $this->users;
     }
 
-    /**
-     * @inheritDoc
-     */
     public function headings(): array
     {
         $items = [
             'ID',
-            'Name',
+            'First Name',
+            'Middle Name',
+            'Last Name',
+            'Affiliate Name',
+            'Affiliate Code',
             'Mobile',
             'Email',
             'Classes',
@@ -55,7 +50,6 @@ class StudentsExport implements FromCollection, WithHeadings, WithMapping
             'LGA',
         ];
 
-
         if (!empty($this->form)) {
             foreach ($this->form->fields as $field) {
                 $items[] = $field->title;
@@ -65,18 +59,23 @@ class StudentsExport implements FromCollection, WithHeadings, WithMapping
         return $items;
     }
 
-    /**
-     * @inheritDoc
-     */
     public function map($user): array
     {
+        $affiliateUser = optional(optional($user->referredBy)->affiliateUser);
+        $affiliateName = $affiliateUser ? $affiliateUser->full_name : 'N/A';
+        $affiliateCode = optional($affiliateUser->affiliateCode)->code ?? 'N/A';
+
         $items = [
             $user->id,
             $user->full_name,
+            $user->middle_name,
+            $user->last_name,
+            $affiliateName,
+            $affiliateCode,
             $user->mobile,
             $user->email,
-            $user->classesPurchasedsCount . '(' . $this->currency . $user->classesPurchasedsSum . ')',
-            $user->meetingsPurchasedsCount . '(' . $this->currency . $user->meetingsPurchasedsSum . ')',
+            $user->classesPurchasedsCount . ' (' . $this->currency . $user->classesPurchasedsSum . ')',
+            $user->meetingsPurchasedsCount . ' (' . $this->currency . $user->meetingsPurchasedsSum . ')',
             $this->currency . $user->getAccountingBalance(),
             !empty($user->userGroup) ? $user->userGroup->group->name : '',
             dateTimeFormat($user->created_at, 'j M Y - H:i'),
@@ -85,7 +84,6 @@ class StudentsExport implements FromCollection, WithHeadings, WithMapping
             $user->country,
             $user->state,
             $user->lga,
-
         ];
 
         if (!empty($this->form)) {

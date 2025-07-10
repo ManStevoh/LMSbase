@@ -18,63 +18,78 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\StudentBulkEnrollment;
+use Illuminate\Support\Facades\DB;
 
 class EnrollmentController extends Controller
 {
-    public function history(Request $request,$is_export_excel = false)
-    {
-        $this->authorize('admin_enrollment_history');
+ public function history(Request $request, $is_export_excel = false)
+{
+    $this->authorize('admin_enrollment_history');
 
-        $query = Sale::whereNotNull('webinar_id');
+    $query = Sale::whereNotNull('webinar_id');
 
-        $salesQuery = $this->getSalesFilters($query, $request);
+    // Apply filters
+    $salesQuery = $this->getSalesFilters($query, $request);
 
-
-
-        $sales = $salesQuery->orderBy('created_at', 'desc')
-            ->with([
-                'buyer',
-                'webinar',
-            ])
-            ->paginate(10);
-
-        foreach ($sales as $sale) {
-            $sale = $this->makeTitle($sale);
-
-            if (empty($sale->saleLog)) {
-                SaleLog::create([
-                    'sale_id' => $sale->id,
-                    'viewed_at' => time()
+    $sales = $salesQuery->orderBy('created_at', 'desc')
+        ->with([
+            'buyer' => function ($q) {
+                $q->with([
+                    'referredBy' => function ($q) {
+                        $q->with([
+                            'affiliateUser' => function ($q) {
+                                $q->with('affiliateCodeRelation');
+                            }
+                        ]);
+                    }
                 ]);
-            }
+            },
+            'webinar',
+        ])
+        ->paginate(10);
+
+    foreach ($sales as $sale) {
+        $sale = $this->makeTitle($sale);
+
+        if (empty($sale->saleLog)) {
+            SaleLog::create([
+                'sale_id' => $sale->id,
+                'viewed_at' => time()
+            ]);
         }
-
-        $data = [
-            'pageTitle' => trans('public.history'),
-            'sales' => $sales,
-        ];
-
-        $teacher_ids = $request->get('teacher_ids');
-        $student_ids = $request->get('student_ids');
-        $webinar_ids = $request->get('webinar_ids');
-
-        if (!empty($teacher_ids)) {
-            $data['teachers'] = User::select('id', 'full_name')
-                ->whereIn('id', $teacher_ids)->get();
-        }
-
-        if (!empty($student_ids)) {
-            $data['students'] = User::select('id', 'full_name')
-                ->whereIn('id', $student_ids)->get();
-        }
-
-        if (!empty($webinar_ids)) {
-            $data['webinars'] = Webinar::select('id')
-                ->whereIn('id', $webinar_ids)->get();
-        }
-
-        return view('admin.enrollment.history', $data);
     }
+
+    // Filters for populating form values
+    $teacher_ids = $request->get('teacher_ids');
+    $student_ids = $request->get('student_ids');
+    $webinar_ids = $request->get('webinar_ids');
+
+    $data = [
+        'pageTitle' => trans('public.history'),
+        'sales' => $sales,
+    ];
+
+    if (!empty($teacher_ids)) {
+        $data['teachers'] = User::select('id', 'full_name', 'middle_name', 'last_name')
+            ->whereIn('id', $teacher_ids)->get();
+    }
+
+    if (!empty($student_ids)) {
+        $data['students'] = User::select('id', 'full_name', 'middle_name', 'last_name')
+            ->whereIn('id', $student_ids)->get();
+    }
+
+    // ✅ FIX: don’t try to select title directly; let Laravel handle translations
+    if (!empty($webinar_ids)) {
+        $data['webinars'] = Webinar::whereIn('id', $webinar_ids)->get();
+    }
+
+    $data['countries'] = User::whereNotNull('country')->pluck('country')->unique()->sort()->values();
+    $data['states'] = User::whereNotNull('state')->pluck('state')->unique()->sort()->values();
+    $data['lgas'] = User::whereNotNull('lga')->pluck('lga')->unique()->sort()->values();
+
+    return view('admin.enrollment.history', $data);
+}
 
     private function makeTitle($sale)
     {
@@ -88,56 +103,102 @@ class EnrollmentController extends Controller
 
         return $sale;
     }
+        
+      private function getSalesFilters($query, $request)
+{
+    $item_title = $request->get('item_title');
+    $from = $request->get('from');
+    $to = $request->get('to');
+    $email = $request->get('email');
+    $status = $request->get('status');
+    $webinar_ids = $request->get('webinar_ids', []);
+    $teacher_ids = $request->get('teacher_ids', []);
+    $student_ids = $request->get('student_ids', []);
+    $userIds = array_merge($teacher_ids, $student_ids);
 
-    private function getSalesFilters($query, $request)
-    {
+    $country = $request->get('country');
+    $state = $request->get('state');
+    $lga = $request->get('lga');
+    $gender = $request->get('gender');
+    $hasAffiliate = $request->get('has_affiliate');
+    $affiliateCode = $request->get('affiliate_code');
 
-
-        $item_title = $request->get('item_title');
-        $from = $request->get('from');
-        $to = $request->get('to');
-        $email = $request->get('email');
-        $status = $request->get('status');
-        $webinar_ids = $request->get('webinar_ids', []);
-        $teacher_ids = $request->get('teacher_ids', []);
-        $student_ids = $request->get('student_ids', []);
-        $userIds = array_merge($teacher_ids, $student_ids);
-
-        if (!empty($email)) {
-            $query->whereHas('buyer', function ($q) use ($email) {
-                $q->where('email', 'like', "%$email%");
-            });
-        }
-        if (!empty($item_title)) {
-            $ids = Webinar::whereTranslationLike('title', "%$item_title%")->pluck('id')->toArray();
-            $webinar_ids = array_merge($webinar_ids, $ids);
-        }
-
-        $query = fromAndToDateFilter($from, $to, $query, 'created_at');
-
-        if (!empty($status)) {
-            if ($status == 'success') {
-                $query->whereNull('refund_at');
-            } elseif ($status == 'refund') {
-                $query->whereNotNull('refund_at');
-            } elseif ($status == 'blocked') {
-                $query->where('access_to_purchased_item', false);
-            }
-        }
-
-        if (!empty($webinar_ids) and count($webinar_ids)) {
-            $query->whereIn('webinar_id', $webinar_ids);
-        }
-
-        if (!empty($userIds) and count($userIds)) {
-            $query->where(function ($query) use ($userIds) {
-                $query->whereIn('buyer_id', $userIds);
-                $query->orWhereIn('seller_id', $userIds);
-            });
-        }
-
-        return $query;
+    if (!empty($email)) {
+        $query->whereHas('buyer', function ($q) use ($email) {
+            $q->where('email', 'like', "%$email%");
+        });
     }
+
+    if (!empty($item_title)) {
+        $ids = Webinar::whereTranslationLike('title', "%$item_title%")->pluck('id')->toArray();
+        $webinar_ids = array_merge($webinar_ids, $ids);
+    }
+
+    $query = fromAndToDateFilter($from, $to, $query, 'created_at');
+
+    if (!empty($status)) {
+        if ($status == 'success') {
+            $query->whereNull('refund_at');
+        } elseif ($status == 'refund') {
+            $query->whereNotNull('refund_at');
+        } elseif ($status == 'blocked') {
+            $query->where('access_to_purchased_item', false);
+        }
+    }
+
+    if (!empty($webinar_ids)) {
+        $query->whereIn('webinar_id', $webinar_ids);
+    }
+
+    if (!empty($userIds)) {
+        $query->where(function ($query) use ($userIds) {
+            $query->whereIn('buyer_id', $userIds)
+                  ->orWhereIn('seller_id', $userIds);
+        });
+    }
+
+    if (!empty($country)) {
+        $query->whereHas('buyer', function ($q) use ($country) {
+            $q->where('country', $country);
+        });
+    }
+
+    if (!empty($state)) {
+        $query->whereHas('buyer', function ($q) use ($state) {
+            $q->where('state', $state);
+        });
+    }
+
+    if (!empty($lga)) {
+        $query->whereHas('buyer', function ($q) use ($lga) {
+            $q->where('lga', $lga);
+        });
+    }
+
+    if (!empty($gender)) {
+        $query->whereHas('buyer', function ($q) use ($gender) {
+            $q->where('gender', $gender);
+        });
+    }
+
+    // ✅ Filter: Has Affiliate
+    if (!empty($hasAffiliate)) {
+        if ($hasAffiliate == 'yes') {
+            $query->whereHas('buyer.referredBy');
+        } elseif ($hasAffiliate == 'no') {
+            $query->whereDoesntHave('buyer.referredBy');
+        }
+    }
+
+    // ✅ Filter: Affiliate Code
+    if (!empty($affiliateCode)) {
+        $query->whereHas('buyer.referredBy.affiliateUser.affiliateCodeRelation', function ($q) use ($affiliateCode) {
+            $q->where('code', 'like', '%' . $affiliateCode . '%');
+        });
+    }
+
+    return $query;
+}
 
     public function addStudentToClass()
     {
@@ -411,34 +472,42 @@ class EnrollmentController extends Controller
         abort(404);
     }
 
-    public function exportExcel(Request $request)
-    {
-        $this->authorize('admin_sales_export');
+  public function exportExcel(Request $request)
+{
+    $this->authorize('admin_sales_export');
 
-        $query = Sale::whereNotNull('webinar_id');
+    $query = Sale::whereNotNull('webinar_id');
 
-        $salesQuery = $this->getSalesFilters($query, $request);
+    $salesQuery = $this->getSalesFilters($query, $request);
 
+    $sales = $salesQuery->orderBy('created_at', 'desc')
+        ->with([
+            'buyer' => function ($q) {
+                $q->with([
+                    'referredBy' => function ($q) {
+                        $q->with([
+                            'affiliateUser' => function ($q) {
+                                $q->with('affiliateCodeRelation');
+                            }
+                        ]);
+                    }
+                ]);
+            },
+            'webinar',
+            'meeting',
+            'subscribe',
+            'promotion'
+        ])
+        ->get();
 
-
-        $sales = $salesQuery->orderBy('created_at', 'desc')
-            ->with([
-                'buyer',
-                'webinar',
-                'meeting',
-                'subscribe',
-                'promotion'
-            ])
-            ->get();
-
-
-        foreach ($sales as $sale) {
-            $sale = $this->makeTitle($sale);
-        }
-
-        $export = new salesExport($sales);
-
-        return Excel::download($export, 'sales.xlsx');
+    foreach ($sales as $sale) {
+        $sale = $this->makeTitle($sale);
     }
+
+    
+    $export = new \App\Exports\salesExport($sales);
+
+    return Excel::download($export, 'sales.xlsx');
+}
 
 }

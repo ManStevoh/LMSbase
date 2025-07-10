@@ -25,57 +25,88 @@ class SalesExport implements FromCollection, WithHeadings, WithMapping
         return $this->sales;
     }
 
-    public function headings(): array
-    {
-        return [
-            trans('admin/main.id'),
-            trans('admin/main.student'),
-            trans('admin/main.student_email'),
-            trans('admin/main.student') . ' ' . trans('admin/main.id'),
-            trans('admin/main.instructor'),
-            trans('admin/main.instructor') . ' ' . trans('admin/main.id'),
-            trans('admin/main.paid_amount'),
-            trans('admin/main.item'),
-            trans('admin/main.item') . ' ' . trans('admin/main.id'),
-            trans('admin/main.sale_type'),
-            trans('admin/main.date'),
-            trans('admin/main.status'),
-            trans('admin/main.progress'),
-        ];
+public function headings(): array
+{
+    return [
+        trans('admin/main.id'),
+        'First Name',
+        'Middle Name',
+        'Last Name',
+        trans('admin/main.student_email'),
+        trans('admin/main.student') . ' ' . trans('admin/main.id'),
+        trans('admin/main.instructor'),
+        trans('admin/main.instructor') . ' ' . trans('admin/main.id'),
+        'Gender',
+        'Country',
+        'State',
+        'LGA',
+        'Affiliate Code',
+        trans('admin/main.paid_amount'),
+        trans('admin/main.item'),
+        trans('admin/main.item') . ' ' . trans('admin/main.id'),
+        trans('admin/main.sale_type'),
+        trans('admin/main.date'),
+        trans('admin/main.status'),
+        trans('admin/main.progress'),
+    ];
+}
+
+
+  public function map($sale): array
+{
+    $buyer = $sale->buyer;
+
+    $paidAmount = $sale->payment_method == \App\Models\Sale::$subscribe
+        ? trans('admin/main.subscribe')
+        : (!empty($sale->total_amount) ? handlePrice($sale->total_amount) : trans('public.free'));
+
+    $status = !empty($sale->refund_at) ? trans('admin/main.refund') : trans('admin/main.success');
+
+    $progress = 0;
+    if ($sale->type == 'webinar' && !empty($sale->webinar_id) && !empty($sale->buyer_id)) {
+        $progress = $this->calculateStudentProgress($sale->buyer_id, $sale->webinar_id);
     }
 
-    public function map($sale): array
+    return [
+        $sale->id,
+        $buyer->full_name ?? '',
+        $buyer->middle_name ?? '',
+        $buyer->last_name ?? '',
+        $buyer->email ?? '',
+        $buyer->id ?? '',
+        $sale->item_seller ?? '—',
+        $sale->seller_id ?? '',
+        $buyer->gender ?? '',
+        $buyer->country ?? '',
+        $buyer->state ?? '',
+        $buyer->lga ?? '',
+        $buyer && $buyer->referredBy && $buyer->referredBy->affiliateUser && $buyer->referredBy->affiliateUser->affiliateCodeRelation
+    ? $buyer->referredBy->affiliateUser->affiliateCodeRelation->code
+    : '',
+
+        $paidAmount,
+        $sale->item_title ?? '',
+        $sale->item_id ?? '',
+        trans('admin/main.' . $sale->type),
+        dateTimeFormat($sale->created_at, 'j M Y H:i'),
+        $status,
+        round($progress) . '%',
+    ];
+}
+
+
+    protected function getFullName($user)
     {
-        $paidAmount = $sale->payment_method == \App\Models\Sale::$subscribe
-            ? trans('admin/main.subscribe')
-            : (!empty($sale->total_amount) ? handlePrice($sale->total_amount) : trans('public.free'));
-
-        $status = !empty($sale->refund_at) ? trans('admin/main.refund') : trans('admin/main.success');
-
-        // Student Progress
-        $progress = 0;
-        if ($sale->type == 'webinar' && !empty($sale->webinar_id) && !empty($sale->buyer_id)) {
-            $progress = $this->calculateStudentProgress($sale->buyer_id, $sale->webinar_id);
+        if (!$user) {
+            return 'Deleted User';
         }
 
-        return [
-            $sale->id,
-            !empty($sale->buyer) ? $sale->buyer->full_name . ' ' . ($sale->buyer->middle_name ?? '') . ' ' . ($sale->buyer->last_name ?? '') : 'Deleted User',
-            !empty($sale->buyer) ? $sale->buyer->email : 'Deleted Email',
-            !empty($sale->buyer) ? $sale->buyer->id : 'Deleted User',
-            !empty($sale->item_seller_user) ? $sale->item_seller_user->full_name . ' ' . ($sale->item_seller_user->middle_name ?? '') . ' ' . ($sale->item_seller_user->last_name ?? '') : $sale->item_seller,
-            $sale->seller_id,
-            $paidAmount,
-            $sale->item_title,
-            $sale->item_id,
-            trans('admin/main.' . $sale->type),
-            dateTimeFormat($sale->created_at, 'j M Y H:i'),
-            $status,
-            round($progress) . '%',
-        ];
+        return trim(collect([
+            $user->full_name,
+            $user->middle_name,
+            $user->last_name
+        ])->filter()->implode(' '));
     }
-
-    // Keep all the progress methods below as-is
 
     protected function calculateStudentProgress($userId, $webinarId)
     {

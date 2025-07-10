@@ -86,11 +86,17 @@ class UserController extends Controller
     }
 
 
- public function students(Request $request, $is_export_excel = false)
+public function students(Request $request, $is_export_excel = false)
 {
     $this->authorize('admin_users_list');
 
-    $query = User::where('role_name', Role::$user);
+    // Load users with related data for exports and views
+    $query = User::where('role_name', Role::$user)
+        ->with([
+            'referredBy.affiliateCode',
+            'affiliateCode',
+            'userGroup.group',
+        ]);
 
     // Clone for stats
     $totalStudents = deepClone($query)->count();
@@ -112,7 +118,7 @@ class UserController extends Controller
     // === Apply Advanced Filters ===
     $query = $this->filters($query, $request);
 
-    // Optional extra filters for dropdowns
+    // Optional extra filters
     if ($request->filled('country')) {
         $query->where('country', $request->input('country'));
     }
@@ -129,10 +135,12 @@ class UserController extends Controller
         $query->where('gender', $request->input('gender'));
     }
 
+    // Get users (export all or paginate)
     if ($is_export_excel) {
         $users = $query->orderBy('created_at', 'desc')->get();
     } else {
-        $users = $query->orderBy('created_at', 'desc')->paginate(10);
+        $users = $query->with(['referredBy.affiliateUser'])->paginate(10);
+
     }
 
     $users = $this->addUsersExtraInfo($users);
@@ -141,7 +149,7 @@ class UserController extends Controller
         return $users;
     }
 
-    // === Dropdown Filter Lists (alphabetically sorted & unique) ===
+    // Dropdown filter values
     $countries = User::where('role_name', Role::$user)
         ->whereNotNull('country')
         ->pluck('country')
@@ -151,19 +159,17 @@ class UserController extends Controller
         ->toArray();
 
     $states = User::where('role_name', Role::$user)
-    ->whereNotNull('state')
-    ->distinct()
-    ->pluck('state')
-    ->sort()
-    ->values()
-    ->toArray();
-
+        ->whereNotNull('state')
+        ->distinct()
+        ->pluck('state')
+        ->sort()
+        ->values()
+        ->toArray();
 
     $lgas = User::where('role_name', Role::$user)
         ->whereNotNull('lga')
         ->distinct()
         ->pluck('lga')
-        
         ->sort()
         ->values()
         ->toArray();
@@ -219,50 +225,36 @@ public function exportExcelStudents(Request $request)
 
 
 
-    public function search(Request $request)
-    {
-        $term = $request->get('term');
-        $option = $request->get('option');
+public function search(Request $request)
+{
+    $term = $request->get('term');
+    $option = $request->get('option');
 
-        $users = User::select('id', 'full_name as name')
-            //->where('role_name', Role::$user)
-            ->where(function ($query) use ($term) {
-                $query->where('full_name', 'like', '%' . $term . '%');
-            });
+    $users = User::select('id', 'full_name', 'middle_name', 'last_name', 'role_name')
+        ->where(function ($query) use ($term) {
+            $query->whereRaw("CONCAT_WS(' ', full_name, middle_name, last_name) LIKE ?", ["%{$term}%"])
+                  ->orWhere('full_name', 'like', '%' . $term . '%')
+                  ->orWhere('middle_name', 'like', '%' . $term . '%')
+                  ->orWhere('last_name', 'like', '%' . $term . '%');
+        });
 
-        if ($option === "for_user_group") {
-            $users->whereNotIn('id', GroupUser::all()->pluck('user_id'));
-        }
-
-        if ($option === "just_teacher_role") {
-            $users->where('role_name', Role::$teacher);
-        }
-
-        if ($option === "just_student_role") {
-            $users->where('role_name', Role::$user);
-        }
-
-        if ($option === "just_organization_role") {
-            $users->where('role_name', Role::$organization);
-        }
-
-        if ($option === "just_organization_and_teacher_role") {
-            $users->whereIn('role_name', [Role::$organization, Role::$teacher]);
-        }
-
-        if ($option === "except_user") {
-            $users->where('role_name', '!=', Role::$user);
-        }
-
-        if ($option === "consultants") {
-            $users->whereHas('meeting', function ($query) {
-                $query->where('disabled', false)
-                    ->whereHas('meetingTimes');
-            });
-        }
-
-        return response()->json($users->get(), 200);
+    if ($option === "just_teacher_role") {
+        $users->where('role_name', Role::$teacher);
     }
+
+    if ($option === "just_student_role") {
+        $users->where('role_name', Role::$user);
+    }
+
+    // Format result to include all 3 names in the dropdown
+    $results = $users->get()->map(function ($user) {
+        $user->name = trim("{$user->full_name} {$user->middle_name} {$user->last_name}");
+        return $user;
+    });
+
+    return response()->json($results, 200);
+}
+
 
     public function organizations(Request $request, $is_export_excel = false)
     {
@@ -897,7 +889,7 @@ public function exportExcelStudents(Request $request)
             case 'purchased_appointments_desc':
             case 'purchased_appointments_amount_asc':
             case 'purchased_appointments_amount_desc':
-                $query = $this->applySalesSorting($query, $sort);
+               
                 break;
             case 'register_asc':
                 $query->orderBy('created_at', 'asc');

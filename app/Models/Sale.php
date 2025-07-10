@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\User;
 use App\Mixins\RegistrationBonus\RegistrationBonusAccounting;
 use App\Models\Observers\SaleNumberObserver;
 use Illuminate\Database\Eloquent\Model;
@@ -38,10 +38,6 @@ class Sale extends Model
     public function webinar()
     {
         return $this->belongsTo('App\Models\Webinar', 'webinar_id', 'id');
-    }
-    public function item_seller_user()
-    {
-        return $this->belongsTo(App\Models\User::class, 'seller_id');
     }
 
 

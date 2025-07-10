@@ -20,89 +20,73 @@ class CertificateController extends Controller
 {
     use CertificateSettingsTrait;
 
-public function index(Request $request)
-{
-    $this->authorize('admin_certificate_list');
+    public function index(Request $request)
+    {
+        $this->authorize('admin_certificate_list');
 
-    $query = Certificate::whereNull('webinar_id');
+        $query = Certificate::whereNull('webinar_id');
 
-    $query = $this->filters($query, $request);
+        $query = $this->filters($query, $request);
 
-    $certificates = $query->with([
-        'quiz' => function ($query) {
-            $query->with('webinar');
-        },
-        'student',
-        'quizzesResult'
-    ])
-        ->orderBy('created_at', 'desc')
-        ->paginate(10);
+        $certificates = $query->with(
+            [
+                'quiz' => function ($query) {
+                    $query->with('webinar');
+                },
+                'student',
+                'quizzesResult'
+            ]
+        )->orderBy('created_at', 'desc')
+            ->paginate(10);
 
-    $teacher_ids = $request->get('teacher_ids');
-    $student_ids = $request->get('student_ids');
 
-    $data = [
-        'pageTitle' => trans('admin/main.certificate_list_page_title'),
-        'certificates' => $certificates,
-        'student' => $request->get('student_name'),
-        'instructor' => $request->get('teacher_name'),
-        'student_email' => $request->get('student_email'),
-        'instructor_email' => $request->get('instructor_email'),
-        'quiz_title' => $request->get('quiz_title'),
-    ];
+        $data = [
+            'pageTitle' => trans('admin/main.certificate_list_page_title'),
+            'certificates' => $certificates,
+            'student' => $filters['student'] ?? null,
+            'instructor' => $filters['instructor'] ?? null,
+            'quiz_title' => $filters['quiz_title'] ?? null,
+        ];
 
-    if (!empty($teacher_ids)) {
-        $data['teachers'] = User::select('id', 'full_name')
-            ->whereIn('id', $teacher_ids)
-            ->get();
+        $teacher_ids = $request->get('teacher_ids');
+        $student_ids = $request->get('student_ids');
+
+        if (!empty($teacher_ids)) {
+            $data['teachers'] = User::select('id', 'full_name')
+                ->whereIn('id', $teacher_ids)->get();
+        }
+
+        if (!empty($student_ids)) {
+            $data['students'] = User::select('id', 'full_name')
+                ->whereIn('id', $student_ids)->get();
+        }
+
+        return view('admin.certificates.lists', $data);
     }
 
-    if (!empty($student_ids)) {
-        $data['students'] = User::select('id', 'full_name')
-            ->whereIn('id', $student_ids)
-            ->get();
-    }
+    private function filters($query, $request)
+    {
+        $filters = $request->all();
 
-    return view('admin.certificates.lists', $data);
-}
+        if (!empty($filters['student_ids'])) {
+            $query->whereIn('student_id', $filters['student_ids']);
+        }
 
+        if (!empty($filters['teacher_ids'])) {
+            $quizzes = Quiz::whereIn('creator_id', $filters['teacher_ids'])->pluck('id')->toArray();
 
-  private function filters($query, $request)
-{
-    $filters = $request->all();
+            if ($quizzes and is_array($quizzes)) {
+                $query->whereIn('quiz_id', $quizzes);
+            }
+        }
 
-    // 🔍 Filter by full student name (first + middle + last)
-    if (!empty($filters['student_name'])) {
-        $name = $filters['student_name'];
-        $query->whereHas('student', function ($q) use ($name) {
-            $q->whereRaw("CONCAT_WS(' ', first_name, middle_name, last_name) LIKE ?", ["%{$name}%"]);
-        });
-    }
-
-    // 🔍 Filter by student IDs
-    if (!empty($filters['student_ids'])) {
-        $query->whereIn('student_id', $filters['student_ids']);
-    }
-
-    // 🔍 Filter by teacher IDs
-    if (!empty($filters['teacher_ids'])) {
-        $quizzes = Quiz::whereIn('creator_id', $filters['teacher_ids'])->pluck('id')->toArray();
-        if (!empty($quizzes)) {
+        if (!empty($filters['quiz_title'])) {
+            $quizzes = Quiz::whereTranslationLike('title', '%' . $filters['quiz_title'] . '%')->pluck('id')->toArray();
             $query->whereIn('quiz_id', $quizzes);
         }
+
+        return $query;
     }
-
-    // 🔍 Filter by quiz title
-    if (!empty($filters['quiz_title'])) {
-        $quizzes = Quiz::whereTranslationLike('title', '%' . $filters['quiz_title'] . '%')->pluck('id')->toArray();
-        if (!empty($quizzes)) {
-            $query->whereIn('quiz_id', $quizzes);
-        }
-    }
-
-    return $query;
-}
-
 
     public function CertificatesTemplatesList(Request $request)
     {

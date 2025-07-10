@@ -22,6 +22,10 @@ class Affiliate extends Model
     {
         return $this->belongsTo('App\User', 'referred_user_id', 'id');
     }
+public function referredBy()
+{
+    return $this->hasOne(\App\Models\Affiliate::class, 'referred_user_id');
+}
 
     public function getTotalAffiliateRegistrationAmounts()
     {
