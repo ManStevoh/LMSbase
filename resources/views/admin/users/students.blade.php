@@ -280,83 +280,67 @@
         <div class="card-body">
             <div class="table-responsive text-center">
                 <table class="table table-striped font-14">
-                    <tr>
-                        <th>ID</th>
-                        <th>{{ trans('admin/main.name') }}</th>
-                        <th>Gender</th>
-                        <th>Country</th>
-                        <th>State</th>
-                        <th>LGA</th>
-                        <th>{{ trans('admin/main.classes') }}</th>
-                        <th>{{ trans('admin/main.appointments') }}</th>
-                        <th>{{ trans('admin/main.wallet_charge') }}</th>
-                        <th>{{ trans('admin/main.income') }}</th>
-                        <th>{{ trans('admin/main.user_group') }}</th>
-                        <th>{{ trans('admin/main.register_date') }}</th>
-                        <th>{{ trans('admin/main.status') }}</th>
-                        <th width="120">{{ trans('admin/main.actions') }}</th>
-                    </tr>
-
-                    @foreach($users as $user)
-                        <tr>
+                                            <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Middle Name</th>
+                            <th>Last Name</th>
+                            <th>Affiliate Name</th>
+                            <th>Affiliate Code</th>
+                            <th>Mobile</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Country</th>
+                            <th>State</th>
+                            <th>LGA</th>
+                            <th>{{ trans('admin/main.classes') }}</th>
+                            <th>{{ trans('admin/main.appointments') }}</th>
+                            <th>{{ trans('admin/main.wallet_charge') }}</th>
+                            <th>{{ trans('admin/main.income') }}</th>
+                            <th>{{ trans('admin/main.user_group') }}</th>
+                            <th>{{ trans('admin/main.register_date') }}</th>
+                            <th>{{ trans('admin/main.status') }}</th>
+                            <th>{{ trans('admin/main.actions') }}</th>
+                        </tr>
+                        
+                        
+                                            @foreach($users as $user)
+                                               <tr>
                             <td>{{ $user->id }}</td>
-                            <td class="text-left">
-                                <div class="d-flex align-items-center">
-                                    <figure class="avatar mr-2">
-                                        <img src="{{ $user->getAvatar() }}" alt="{{ $user->full_name }}">
-                                    </figure>
-                                    <div class="media-body ml-1">
-                                        <div class="mt-0 mb-1 font-weight-bold">{{ $user->full_name }} {{ $user->middle_name }} {{ $user->last_name }}</div>
-
-                                        @if($user->mobile)
-                                            <div class="text-primary text-small font-600-bold">{{ $user->mobile }}</div>
-                                        @endif
-
-                                        @if($user->email)
-                                            <div class="text-primary text-small font-600-bold">{{ $user->email }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </td>
-
+                            <td>{{ $user->full_name }}</td>
+                            <td>{{ $user->middle_name }}</td>
+                            <td>{{ $user->last_name }}</td>
+                        <td>{{ optional(optional($user->referredBy)->affiliateUser)->full_name ?? 'N/A' }}</td>
+                        <td>{{ optional(optional(optional($user->referredBy)->affiliateUser)->affiliateCode)->code ?? 'N/A' }}</td>
+                        
+                            <td>{{ $user->mobile }}</td>
+                            <td>{{ $user->email }}</td>
                             <td>{{ $user->gender }}</td>
                             <td>{{ $user->country }}</td>
                             <td>{{ $user->state }}</td>
                             <td>{{ $user->lga }}</td>
-
                             <td>
-                                <div class="media-body">
-                                    <div class="text-primary mt-0 mb-1 font-weight-bold">{{ $user->classesPurchasedsCount }}</div>
-                                    <div class="text-small font-600-bold">{{ handlePrice($user->classesPurchasedsSum) }}</div>
-                                </div>
+                                <div class="text-primary font-weight-bold">{{ $user->classesPurchasedsCount }}</div>
+                                <div class="text-small font-600-bold">{{ handlePrice($user->classesPurchasedsSum) }}</div>
                             </td>
-
                             <td>
-                                <div class="media-body">
-                                    <div class="text-primary mt-0 mb-1 font-weight-bold">{{ $user->meetingsPurchasedsCount }}</div>
-                                    <div class="text-small font-600-bold">{{ handlePrice($user->meetingsPurchasedsSum) }}</div>
-                                </div>
+                                <div class="text-primary font-weight-bold">{{ $user->meetingsPurchasedsCount }}</div>
+                                <div class="text-small font-600-bold">{{ handlePrice($user->meetingsPurchasedsSum) }}</div>
                             </td>
-
                             <td>{{ handlePrice($user->getAccountingBalance()) }}</td>
-
                             <td>{{ handlePrice($user->getIncome()) }}</td>
-
-                            <td>
-                                {{ !empty($user->userGroup) ? $user->userGroup->group->name : '' }}
-                            </td>
-
+                            <td>{{ $user->userGroup->group->name ?? '' }}</td>
                             <td>{{ dateTimeFormat($user->created_at, 'j M Y | H:i') }}</td>
-
                             <td>
                                 @if($user->ban and !empty($user->ban_end_at) and $user->ban_end_at > time())
-                                    <div class="mt-0 mb-1 font-weight-bold text-danger">{{ trans('admin/main.ban') }}</div>
+                                    <div class="text-danger font-weight-bold">{{ trans('admin/main.ban') }}</div>
                                     <div class="text-small font-600-bold">Until {{ dateTimeFormat($user->ban_end_at, 'Y/m/j') }}</div>
                                 @else
-                                    <div class="mt-0 mb-1 font-weight-bold {{ ($user->status == 'active') ? 'text-success' : 'text-warning' }}">{{ trans('admin/main.'.$user->status) }}</div>
+                                    <div class="font-weight-bold {{ $user->status == 'active' ? 'text-success' : 'text-warning' }}">
+                                        {{ trans('admin/main.'.$user->status) }}
+                                    </div>
                                 @endif
                             </td>
-
                             <td class="text-center mb-2" width="120">
                                 @can('admin_users_impersonate')
                                     <a href="{{ getAdminPanelUrl() }}/users/{{ $user->id }}/impersonate" target="_blank" class="btn-transparent  text-primary" data-toggle="tooltip" data-placement="top" title="{{ trans('admin/main.login') }}">
@@ -375,7 +359,8 @@
                                 @endcan
                             </td>
 
-                        </tr>
+</tr>
+
                     @endforeach
                 </table>
             </div>
