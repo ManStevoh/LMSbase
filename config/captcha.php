@@ -3,12 +3,12 @@
 return [
     'characters' => ['2', '3', '4', '6', '7', '8', '9'],
     'default' => [
-        'length' => 5,
+        'length' => 4,
         'width' => 120,
         'height' => 36,
         'quality' => 90,
         'math' => false,
-        'expire' => 90,
+        'expire' => 12000,
         'encrypt' => false,
     ],
     'math' => [
@@ -29,6 +29,7 @@ return [
         'bgColor' => '#ecf2f4',
         'fontColors' => ['#2c3e50', '#c0392b', '#16a085', '#c0392b', '#8e44ad', '#303f9f', '#f57c00', '#795548'],
         'contrast' => -5,
+        'expire' => 12000,
     ],
     'mini' => [
         'length' => 3,
