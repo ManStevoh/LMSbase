@@ -18,6 +18,11 @@ class Affiliate extends Model
         return $this->belongsTo('App\User', 'affiliate_user_id', 'id');
     }
 
+public function affiliateCode()
+{
+    return $this->hasOne(\App\Models\AffiliateCode::class, 'user_id', 'affiliate_user_id');
+}
+
     public function referredUser()
     {
         return $this->belongsTo('App\User', 'referred_user_id', 'id');
