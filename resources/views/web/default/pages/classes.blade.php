@@ -29,6 +29,7 @@
             </div>
         </div>
     </section>
+    
 
     <div class="container mt-30">
         <section class="mt-lg-50 pt-lg-20 mt-md-40 pt-md-40">
@@ -40,7 +41,7 @@
                         @if(empty(request()->get('card')) or request()->get('card') == 'grid')
                             <div class="row">
                                 @foreach($webinars as $webinar)
-                                    <div class="col-12 col-lg-4 mt-20">
+                                    <div class="col-12 col-md-6 mt-20">
                                         @include('web.default.includes.webinar.grid-card',['webinar' => $webinar])
                                     </div>
                                 @endforeach
